@@ -5,7 +5,7 @@ class Dog(models.Model):
     breed = models.ForeignKey("dogs.Breed", verbose_name="Порода собаки", related_name="dogs",
                               on_delete=models.SET_NULL, null=True)
     photo = models.ImageField(upload_to="dog_photo", verbose_name="Картинка", null=True, blank=True)
-    date_born = models.DateField(verbose_name="Дата рождения", null=True)
+    date_born = models.DateField(verbose_name="Дата рождения", blank=True, null=True)
 
 class Breed(models.Model):
     name = models.CharField(max_length=100)

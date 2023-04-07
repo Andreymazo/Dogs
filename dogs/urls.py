@@ -12,10 +12,11 @@ router = DefaultRouter()
 router.register(r'dogs', DogViewSet, basename='dogs')
 
 urlpatterns = [
-    path('dogs/', BreedListView.as_view(), name='dogs'),
-    path('dogs/1', BreedCreateView.as_view(), name='dogs2'),
-    path('dogs/2', BreedUpdateView.as_view(), name='dog3'),
-    path('dogs/3', BreedRetrieveView.as_view(), name='dogs4'),
+    # path('dogs/', DogViewSet.as_view({'get': 'list', 'post': 'create'}), name='dogs'),
+    path('dogs/0', BreedListView.as_view(), name='dogs'),
+    path('dogs/create', BreedCreateView.as_view(), name='dogs2'),
+    path('dogs/<int:pk>', BreedUpdateView.as_view(), name='dog3'),
+    path('dogs/<int:pk>', BreedRetrieveView.as_view(), name='dogs4'),
     path('dogs/4', BreedRetrieveUpdateDestroy.as_view(), name='dogs5')
               ] + router.urls
 # urlpatterns = [
